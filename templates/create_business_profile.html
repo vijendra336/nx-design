@@ -1,0 +1,311 @@
+<!-- Login-Registration Form  -->
+<!-- <div data-ng-include="'templates/nav/fixed-sidebar.html'"></div> -->
+<div data-ng-include="'templates/nav/afterheader.html'"></div>
+<div class="container pt-3 pb-3" id="pageBody">
+	<div class="row">
+		<div class="col-md-8 offset-md-2 m-auto">
+			<div class="col-md-12 mb-3">
+				<h4>Create Your B-Profile</h4>
+				<p><b>Promote your business and explore the new opportunities.</b</p>
+			</div>
+			
+			<div ng-if="stepformpage==1" class="ui-block card">
+				<div class="ui-block-title p-3 bg-primary text-white">
+					<h6 class="title text-white text-center">Basic Info</h6>
+				</div>
+				<div class="ui-block-content">
+					<form class="content">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group label-floating">
+									<label class="control-label">Organization Type <sup class="text-danger">*</sup></label>
+									<select class="form-control" id="day" size="auto" style="padding:1.6rem 1.1rem .4rem;height: 54px;">
+											<option value="">Please select</option>
+											<option value="Govt. Organization">Govt. Organization</option>
+											<option value="Propreitorship">Propreitorship</option>
+											<option value="Partnership">Partnership</option>
+											<option value="Limited Liability partnership (LLP)">Limited Liability partnership (LLP)</option>
+											<option value="One Person Company (OPC)">One Person Company (OPC)</option>
+											<option value="Private Company">Private Company</option>
+											<option value="Public Company">Public Company</option>
+											<option value="Society">Society</option>
+											<option value="Freelancer">Freelancer</option>
+											<option value="Trust">Trust</option>
+											<option value="Self Employed">Self Employed</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group label-floating">
+									<label class="control-label">Industry <sup class="text-danger">*</sup></label>
+									<select class="form-control" id="day" size="auto" style="padding:1.6rem 1.1rem .4rem;height: 54px;">
+											<option value="">Please select</option>
+											<option value="Govt. Organization">Share Market</option>
+											<option value="Propreitorship">Information Technology</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group label-floating">
+									<label class="control-label">Name of Organization <sup class="text-danger">*</sup></label>
+									<input type="text" class="form-control" required/>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group label-floating">
+									<label class="custom-checkbox" style="font-size: 13px;">By clicking <a href="#">here</a> I verify that I am the official representative of this company / firm / organization and have the right to act and behalf of the company / firm / organization in the creation of this profile
+										<input type="checkbox" checked="checked" style="visibility: hidden;">
+										<span class="checkmark"></span>
+									</label>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="ui-block-title text-right p-2">
+					<button ui-sref="businessprofileplans" class="btn btn-danger">Cancel</button>
+					<button ng-click="nextprecards(2)" class="btn btn-theme">Next</button>
+				</div>
+			</div>
+			<div ng-if="stepformpage==3" class="ui-block card">
+				<div class="ui-block-title p-3 bg-primary text-white">
+					<h6 class="title text-white text-center">Basic Info</h6>
+				</div>
+				<div class="ui-block-content">
+					<form class="content">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group label-floating">
+									<label class="control-label">Enter Domain Mail-ID</label>
+									<input type="text" class="form-control m-auto" />
+									<small class="help text-primary">e.g. (name@yourdomain.com)</small>
+								</div>
+							</div>
+							<h6 class="w-100 text-center mb-3">OR</h6>
+							<div class="col-md-12">
+								<div class="form-group label-floating">
+									<label class="control-label">Email</label>
+									<input type="text" class="form-control" required/>
+									<small class="help text-primary">If you don't have Domain Mail-ID</small>
+								</div>
+								<hr class="w-100" />
+								<div class="form-group label-floating prefix-icon ">
+									<label class="control-label" style="position: relative;left: 0;top: 0;">Nx Business public URL</label>
+									<div class="d-flex">
+										<span class="m-auto p-1 bg-smoke">
+											nxbusiness.com/bprofile/
+										</span>
+										<input type="text" style="padding: 10px;height: 34px;border-radius: 0;" class="form-control m-auto" />
+										<!-- <span class="m-auto p-1 bg-smoke">
+											_UID
+										</span> -->
+									</div>
+									<p class="text-primary">By verifying the email your URL will be verified.</p>
+								</div>
+							</div>
+							
+						</div>
+					</form>
+				</div>
+				<div class="ui-block-title text-right p-2">
+					<button ng-click="nextprecards(2)" class="btn btn-danger">Previous</button>
+					<button ng-click="nextprecards(4)" class="btn btn-theme">Next</button>
+				</div>
+			</div>
+			<div ng-if="stepformpage==4" class="ui-block card">
+				<div class="ui-block-title p-3 bg-primary text-white">
+					<h6 class="title text-white text-center">Basic Info</h6>
+				</div>
+				<div class="ui-block-content">
+					<div class="registration-login-form p-4">
+						<div class="mb-3">
+							<a class="navbar-brand d-block d-md-none mb-3  text-center" href="#"><img src="assets/img/logo.png" style="width:85px;" alt="NxBusiness"></a>
+							<h3 class="text-theme">Verify Your Email</h3>
+							<p class="text-dark">Please check your email inbox for the OTP</p>
+						</div>      
+							<div class="form-group label-floating">
+								<label class="control-label">Enter OTP here</label>
+								<input class="form-control" placeholder="" type="text" name="verfiyOtp" required>
+								<span class="input-group-addon p-0" style="height: 54px;margin-right: 5px">
+								 <button class="btn btn-info m-1" ng-click="reset()" type="button">Resend</button>
+								</span>
+							</div>
+							<p style="color:#949292;">Your OTP will be expired in 12 hours.</p>
+					</div>
+				</div>
+				<div class="ui-block-title text-right p-2">
+					<button ng-click="nextprecards(3)" class="btn btn-danger">Previous</button>
+					<button ng-click="Finish()" class="btn btn-theme">Finish</button>
+				</div>
+			</div>
+			<div ng-if="stepformpage==2" class="ui-block card">
+				<div class="ui-block-title p-3 bg-primary text-white">
+					<h6 class="title text-white text-center">Basic Info</h6>
+				</div>
+				<div class="ui-block-content">
+					<form class="content">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group label-floating">
+									<label class="control-label">Address <sup class="text-danger">*</sup></label>
+									<textarea style="min-height: 80px !important;max-height: 80px;" class="form-control"></textarea>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group label-floating">
+									<label class="control-label">Country <sup class="text-danger">*</sup></label>
+									<select class="form-control" id="day" size="auto" style="padding:1.6rem 1.1rem .4rem;height: 54px;">
+											<option value="">Please select</option>
+											<option value="India">India</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group label-floating">
+									<label class="control-label">State <sup class="text-danger">*</sup></label>
+									<select class="form-control" id="day" size="auto" style="padding:1.6rem 1.1rem .4rem;height: 54px;">
+											<option value="">Please select</option>
+											<option value="India">India</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group label-floating">
+									<label class="control-label">City <sup class="text-danger">*</sup></label>
+									<input type="text" class="form-control" required/>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group label-floating">
+									<label class="control-label">Zip Code <sup class="text-danger">*</sup></label>
+									<input type="text" class="form-control" required/>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group label-floating">
+									<label class="control-label">Mobile Number <sup class="text-danger">*</sup></label>
+									<input type="text" class="form-control" required/>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group label-floating">
+									<label class="control-label">Telephone Number</label>
+									<input type="text" class="form-control"/>
+								</div>
+							</div>
+							<!-- <div class="col-md-12">
+								<p class="m-0">Locate your Business <button class="btn btn-link text-primary" data-toggle="modal" data-target=".maplocation">
+									<img src="../assets/img/maplocation.png" style="width:30px;" />
+								</button></p>
+								<p class="m-0"><strong>Latitude:</strong> 1.25971864</p>
+								<p class="m-0"><strong>Longitude:</strong> 1.25971864</p>
+							</div> -->
+						</div>
+					</form>
+				</div>
+				<div class="ui-block-title text-right p-2">
+					<button ng-click="nextprecards(1)" class="btn btn-danger">Previous</button>
+					<button ng-click="nextprecards(3)" class="btn btn-theme">Next</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div data-ng-include="'templates/nav/afterfooter.html'"></div>
+
+<div class="modal fade maplocation" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="ui-block">
+					<div class="ui-block-content">
+						<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+						<div id="map" style="min-height: 430px;"></div>
+					</div>
+					<div class="ui-block-title text-right p-2">
+						<button data-dismiss="modal" class="btn btn-danger">Cancel</button>
+						<button data-dismiss="modal" class="btn btn-theme">Save</button>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+<script>
+		// This example adds a search box to a map, using the Google Place Autocomplete
+		// feature. People can enter geographical searches. The search box will return a
+		// pick list containing a mix of places and predicted search terms.
+  
+		// This example requires the Places library. Include the libraries=places
+		// parameter when you first load the API. For example:
+		// <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+  
+		function initAutocomplete() {
+		  var map = new google.maps.Map(document.getElementById('map'), {
+			center: {lat: -33.8688, lng: 151.2195},
+			zoom: 13,
+			mapTypeId: 'roadmap'
+		  });
+  
+		  // Create the search box and link it to the UI element.
+		  var input = document.getElementById('pac-input');
+		  var searchBox = new google.maps.places.SearchBox(input);
+		  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+  
+		  // Bias the SearchBox results towards current map's viewport.
+		  map.addListener('bounds_changed', function() {
+			searchBox.setBounds(map.getBounds());
+		  });
+  
+		  var markers = [];
+		  // Listen for the event fired when the user selects a prediction and retrieve
+		  // more details for that place.
+		  searchBox.addListener('places_changed', function() {
+			var places = searchBox.getPlaces();
+  
+			if (places.length == 0) {
+			  return;
+			}
+  
+			// Clear out the old markers.
+			markers.forEach(function(marker) {
+			  marker.setMap(null);
+			});
+			markers = [];
+  
+			// For each place, get the icon, name and location.
+			var bounds = new google.maps.LatLngBounds();
+			places.forEach(function(place) {
+			  if (!place.geometry) {
+				console.log("Returned place contains no geometry");
+				return;
+			  }
+			  var icon = {
+				url: place.icon,
+				size: new google.maps.Size(71, 71),
+				origin: new google.maps.Point(0, 0),
+				anchor: new google.maps.Point(17, 34),
+				scaledSize: new google.maps.Size(25, 25)
+			  };
+  
+			  // Create a marker for each place.
+			  markers.push(new google.maps.Marker({
+				map: map,
+				icon: icon,
+				title: place.name,
+				position: place.geometry.location
+			  }));
+  
+			  if (place.geometry.viewport) {
+				// Only geocodes have viewport.
+				bounds.union(place.geometry.viewport);
+			  } else {
+				bounds.extend(place.geometry.location);
+			  }
+			});
+			map.fitBounds(bounds);
+		  });
+		}
+  
+	  </script>
+	  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete"
+		   async defer></script>
+  

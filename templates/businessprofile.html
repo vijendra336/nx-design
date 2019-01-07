@@ -1,0 +1,323 @@
+<!-- Login-Registration Form  -->
+<!-- <div data-ng-include="'templates/nav/fixed-sidebar.html'"></div> -->
+<link rel='stylesheet' href='../assets/css/owl.carousel.min.css'>
+<link rel='stylesheet' href='../assets/css/owl.theme.default.min.css'>
+<div data-ng-include="'templates/nav/afterheader.html'"></div>
+<div class="container pb-3" id="pageBody">
+	<div class="row">
+		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 p-0 p-sm-0">
+			<div id="banner-slider" class="owl-carousel" style="max-height: 275px;overflow: hidden;">
+				<div ng-repeat="item in banners" ng-repeat-owl-carousel carousel-init="bannerscarouselInitializer">
+					<img ng-src="{{imagepath}}{{item.img}}" alt="image" width="250">
+				</div>
+			</div>
+			<button class="b-profile-banner-button" data-toggle="modal" data-target="#addBanners">Update Cover</button>
+			<!-- <div class="top-header">										
+				<div class="top-header-thumb" style="background:url('assets/img/banner.png') no-repeat center;background-size:cover;">
+					<button class="profile-edit-button"><i class="fa fa-pancil"></i> Update Cover</button>
+				</div>
+			</div> -->
+		</div>
+	</div>
+	<style>
+		.navbar-brand.author-thumb{
+			background: #e8e8e8;
+			overflow: hidden;
+			padding: 4px;
+			border-radius: 4px;
+			display: inline-block;
+			vertical-align: bottom;
+			border: 2px solid #ffffff;
+			box-shadow: 0px 0px 4px #3e3e3e;
+			width: 70px;
+			height: 70px;
+		}
+		.profile-edit-button{
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 100%;
+			max-width: 90px;
+			height: 24px;
+			padding: 5px 2px;
+			background: rgba(0,0,0,0.5);
+			border: none;
+			display: none;
+			color: #fff;
+			font-size: 8px;
+		}
+		.navbar-brand.author-thumb:hover .profile-edit-button{
+			display: block;
+		}
+	</style>
+	<div class="row row-eq-height">
+		<div class="col-md-4 d-flex">
+			<a href="#" class="navbar-brand author-thumb m-auto">
+				<button class="profile-edit-button"><i class="fa fa-pencil"></i> Update Photo</button>
+				<img src="http://localhost/nx/assets/img/company_logo.png" style="height: 100%;width: 100%;" alt="author">
+			</a>
+			<div>
+				<h5 class="contant-title overflow ellipsis" style="padding:10px 35px 0px 0px;">Wapp Tech Logics Groups of Industry PVT. LMT.
+					<svg style="width: 25px;position: absolute;right:0;top: 0;height:25px;fill: #00ab00;display: inline-flex;" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="97.785px" height="97.785px" viewBox="0 0 97.785 97.785" style="enable-background:new 0 0 97.785 97.785;" xml:space="preserve"><g><path d="M48.896,30.221C28.365,49.168,17.704,29.46,17.704,53.281c0,33.218,23.983,43.242,31.191,44.504 c7.204-1.26,31.188-11.286,31.188-44.504C80.083,29.461,69.425,49.168,48.896,30.221z M66.111,60.734L48.15,78.693 c-0.951,0.953-2.199,1.43-3.446,1.43c-1.248, 0-2.495-0.477-3.447-1.43l-9.58-9.578c-1.903-1.904-1.903-4.989,0-6.895 c1.901-1.902,4.99-1.902,6.892,0l6.135,6.135L59.22,53.841c1.9-1.904,4.99-1.904,6.893,0 C68.016,55.742,68.016,58.828,66.111,60.734z"/></g></svg>
+				</h5>
+				<!-- <p class="rating d-flex mb-1"><a class="d-inline-flex"><i class="fa fa-star"></i></a> <a class="d-inline-flex"><i class="fa fa-star"></i></a> <a class="d-inline-flex"><i class="fa fa-star"></i></a> <a class="d-inline-flex"><i class="fa fa-star"></i></a> <a class="d-inline-flex"><i class="fa fa-star"></i></a></p> -->
+				<p class="d-flex mb-1"><strong>Industry</strong></p>	
+			</div>
+		</div>
+		<div class="col-md-8 m-p-0">
+			<div class="row h-100 ml-auto">
+				<div class="btn-group action-buttons" style="margin:auto 0 auto auto;" role="group" aria-label="Basic example">
+					<button type="button" class="btn btn-sm btn-dark" style="margin-right:2px;"><i class="fa fa-hand-o-up"></i> <br />Interest</button>
+					<!-- <button type="button" class="btn btn-sm  btn-dark" style="margin-right:2px;"><i class="fa fa-handshake-o"></i> <br />Follow</button> -->
+					<button type="button" class="btn btn-sm  btn-dark" style="margin-right:2px;"><i class="fa fa-comment"></i> <br />Message</button>
+					<button type="button" data-toggle="modal" data-target="#sharewindow" class="btn btn-sm  btn-dark" style="margin-right:2px;"><i class="fa fa-share-alt"></i> <br />Share</button>
+					<button type="button" class="btn btn-sm  btn-dark" style="margin-right:2px;"><i class="fa fa-share"></i> <br />Forword</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row d-none d-md-block">
+		<nav class="navbar navbar-expand-md business-profile-sub-header w-100 bg-theme" id="mainNav">
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav">
+					<li class="nav-item" ui-sref="businessprofile.overview" ui-sref-active="active" ng-class="activenav=='overview'?'active':''">
+						<a class="nav-link text-light">Dashboard</a>
+					</li>
+					<li class="nav-item" ui-sref="businessprofile.aboutus" ui-sref-active="active" ng-class="activenav=='aboutus'?'active':''">
+						<a class="nav-link text-light">About Us</a>
+					</li>
+					<li class="nav-item" ui-sref="businessprofile.what_we_do" ui-sref-active="active" ng-class="activenav=='what_we_do'?'active':''">
+						<a class="nav-link text-light">What We Do</a>
+					</li>
+					<li class="nav-item" ui-sref="businessprofile.publish" ui-sref-active="active" ng-class="activenav=='publish'?'active':''">
+						<a class="nav-link text-light">Publish</a>
+					</li>
+					<li class="nav-item" ui-sref="businessprofile.portfolio" ui-sref-active="active" ng-class="activenav=='portfolio'?'active':''">
+						<a class="nav-link text-light">Portfolio</a>
+					</li>
+					<li class="nav-item" ui-sref="businessprofile.presence" ui-sref-active="active" ng-class="activenav=='presence'?'active':''">
+						<a class="nav-link text-light">Other Network</a>
+					</li>
+					<li class="nav-item" ui-sref="businessprofile.gallery" ui-sref-active="active" ng-class="activenav=='gallery'?'active':''">
+						<a class="nav-link text-light">Photos/Videos</a>
+					</li>
+					<li class="nav-item" ui-sref="businessprofile.feedback" ui-sref-active="active" ng-class="activenav=='feedback'?'active':''">
+						<a class="nav-link text-light">Feedback</a>
+					</li>
+				</ul>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle text-light" id="viewadDropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">View as</a>
+						<div class="dropdown-menu" aria-labelledby="viewadDropdown">
+							<a ui-sref="businessprofileother.aboutus" class="dropdown-item nav-link">Public login Profile</a>
+							<div role="separator" class="dropdown-divider"></div>
+							<a ui-sref="publicprofile" class="dropdown-item nav-link">Public logout Profile</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<div class="row pt-md-3" ui-view="businessprofile">
+	</div>
+</div>
+	<!-- Window-popup Create Friends Group Add Friends -->
+	<div class="modal fade" id="addBanners">
+		<div class="modal-dialog ui-block modal-lg addTeamMember">
+			<a href="#" class="close icon-close" data-dismiss="modal" aria-label="Close">
+				<svg class="olymp-close-icon"><use xlink:href="icons/icons.svg#olymp-close-icon"></use></svg>
+			</a>
+			<div class="ui-block-title">
+				<h6 class="title">Add banner</h6>
+			</div>
+			<div class="ui-block-content">
+				<div class="row mb-4">
+					<div class="col-md-4 col-sm-6 col-xs-12">
+						<div class="friend-item friend-groups create-group d-flex" style="padding:2rem;">
+							<span class="m-auto">Upload Banner 1</span>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 col-xs-12">
+						<div class="friend-item friend-groups create-group d-flex" style="padding:2rem;">
+							<span class="m-auto">Upload Banner 2</span>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 col-xs-12">
+						<div class="friend-item friend-groups create-group d-flex" style="padding:2rem;">
+							<span class="m-auto">Upload Banner 3</span>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12 col-xs-12 align-right">
+						<button class="btn btn-primary btn-lg">Save</button>
+						<button data-dismiss="modal" class="btn btn-danger btn-lg">Cancel</button>
+					</div>
+				</div>
+			</div>
+		
+		</div>
+	</div>
+	<style>
+		.share_profile_view{
+			position: relative;
+			padding-bottom: 10px;
+			overflow: hidden;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+		.profile-banner{
+			overflow: hidden;
+			height:120px;
+			width: 100%;		
+		}
+		.profile-interestandfollow{
+			color:#333;	
+			padding-left: 125px;
+		}
+		.profile-interestandfollow p{
+			color:#333;	
+		}
+		.profile-interestandfollow a{
+			color:#333;
+			padding:5px 10px;
+			text-align:center;
+			font-weight:600; 
+		}
+		.profile-picture{
+			background: #e8e8e8;
+			overflow: hidden;
+			padding: 4px;
+			border-radius: 4px;
+			display: inline-block;
+			vertical-align: bottom;
+			border: 2px solid #ffffff;
+			box-shadow: 0px 0px 4px #3e3e3e;
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			bottom: 10px;
+			left: 10px;
+		}
+	</style>
+	<div class="modal fade" id="sharewindow">
+			<div class="modal-dialog ui-block window-popup create-friend-group addTeamMember">
+				<a href="#" class="close icon-close" data-dismiss="modal" aria-label="Close">
+					<svg class="olymp-close-icon"><use xlink:href="icons/icons.svg#olymp-close-icon"></use></svg>
+				</a>
+				<div class="ui-block-title">
+					<h6 class="title">Share B-Profile</h6>
+				</div>
+			
+				<div class="ui-block-content">
+					<div class="form-group label-floating" style="margin-bottom:5px;">
+						<div class="textarea-effact">
+							<label class="control-label textara-label">Comment<sup class="text-danger">*</sup></label>
+							<textarea style="min-height: 75px;" class="form-control" name="description" required></textarea>
+						</div>
+					</div>
+					<div class="share_profile_view">
+						<div class="profile-banner" style="background:url('assets/img/bg-birthdays1.jpg') no-repeat center;background-size:cover;">
+						</div>
+						<div class="profile-picture">
+							<img src="http://localhost/nx/assets/img/company_logo.png" style="height: 100%;width: 100%;" />
+						</div>
+						<div class="profile-interestandfollow">
+							<p class="d-flex"><a><span>Interest</span><br /><span>100</span></a><a><span>Followers</span><br /><span>500</span></a></p>
+						</div>
+					</div>
+					<br />
+					<div class="row">
+						<div class="col-sm-12 col-xs-12 align-right">
+							<button class="btn btn-primary btn-lg">Publish</button>
+							<button data-dismiss="modal" class="btn btn-danger btn-lg">Cancel</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+<div data-ng-include="'templates/nav/afterfooter.html'"></div>
+<script src='../js/theme/owl.carousel.min.js'></script>
+<script>
+	$(window).scrollTop(0);	
+/*
+*Helpers Functions
+*/
+// Numbers with zeros
+function pad(d) {
+    return (d < 10) ? '0' + d : d;
+}
+	// Generate range array
+function range(start, stop, step){
+    var a=[pad(start)], b=start;
+	while(b<stop){b+=step;a.push(pad(b))}
+	console.log(a);
+    return a;
+}
+var twoBar2Chart = document.getElementById("two-bar-chart-2");
+/*
+ *  Colors Pie Chart
+ * 26-Statistics.html
+ */
+
+if (twoBar2Chart !== null) {
+    var ctx_tb2 = twoBar2Chart.getContext("2d");
+    var data_tb2 = {
+        labels: ["","",""],
+        datasets: [
+            {
+                label: "Posting",
+                backgroundColor: "#2f5b9d",
+                borderSkipped: "bottom",
+                data: [43]
+            }, {
+                label: "Publishing",
+                backgroundColor: "#38bff1",
+                borderSkipped: 'bottom',
+                borderWidth: 0,
+                data: [36]
+            }, {
+                label: "Sharing",
+                backgroundColor: "#38bff1",
+                borderSkipped: 'bottom',
+                borderWidth: 0,
+                data: [50]
+            }]
+    };
+
+    var twoBar2ChartEl = new Chart(ctx_tb2, {
+        type: 'bar',
+        data: data_tb2,
+        options: {
+            legend: {
+                display: false
+            },
+            tooltips: {
+                mode: 'index',
+                intersect: false
+            },
+            responsive: true,
+            scales: {
+                xAxes: [{
+                    barPercentage:0.5,
+                    gridLines: {
+                        display: false
+                    },
+                    ticks: {
+                        fontColor: '#888da8'
+                    }
+                }],
+                yAxes: [{
+                    gridLines: {
+                        display: false
+                    },
+                    ticks: {
+                        beginAtZero:true,
+                        fontColor: '#888da8'
+                    }
+                }]
+            }
+        }
+    });
+}
+</script>

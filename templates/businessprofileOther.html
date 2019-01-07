@@ -1,0 +1,684 @@
+<!-- Login-Registration Form  -->
+<!-- <div data-ng-include="'templates/nav/fixed-sidebar.html'"></div> -->
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
+<link rel='stylesheet' href='../assets/css/owl.carousel.min.css'>
+<link rel='stylesheet' href='../assets/css/owl.theme.default.min.css'>
+<link rel="stylesheet" type="text/css" href="../assets/css/public-header.css">
+<div data-ng-include="'templates/nav/afterheader.html'"></div>
+<div class="container pb-3" id="pageBody">
+	<div class="row">
+		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 p-0 p-sm-0">
+			<div id="banner-slider" class="owl-carousel" style="max-height: 275px;overflow: hidden;">
+				<div ng-repeat="item in banners" ng-repeat-owl-carousel carousel-init="bannerscarouselInitializer">
+					<img ng-src="{{imagepath}}{{item.img}}" alt="image" width="250">
+				</div>
+				
+			</div>
+			<!-- <div class="top-header">										
+				<div class="top-header-thumb" style="background:url('assets/img/banner.png') no-repeat center;background-size:cover;">
+					<button class="profile-edit-button"><i class="fa fa-pancil"></i> Update Cover</button>
+				</div>
+			</div> -->
+		</div>
+	</div>
+	<style>
+		.navbar-brand.author-thumb{
+			background: #e8e8e8;
+			overflow: hidden;
+			padding: 4px;
+			border-radius: 4px;
+			display: inline-block;
+			vertical-align: bottom;
+			border: 2px solid #ffffff;
+			box-shadow: 0px 0px 4px #3e3e3e;
+			width: 70px;
+			height: 70px;
+		}
+		.profile-edit-button{
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 100%;
+			max-width: 90px;
+			height: 24px;
+			padding: 5px 2px;
+			background: rgba(0,0,0,0.5);
+			border: none;
+			display: none;
+			color: #fff;
+			font-size: 8px;
+		}
+		.navbar-brand.author-thumb:hover .profile-edit-button{
+			display: block;
+		}
+	</style>
+	<div class="row row-eq-height">
+		<div class="col-md-4 d-flex">
+			<a href="#" class="navbar-brand author-thumb m-auto">
+				<img src="assets/img/company_logo.png" style="height: 100%;width: 100%;" alt="author">
+			</a>
+			<div>
+				<h5 class="contant-title overflow ellipsis" style="padding:10px 35px 0px 0px;">Wapp Tech Logics Groups of Industry PVT. LMT.
+					<svg style="width: 25px;position: absolute;right:0;top: 0;height:25px;fill: #00ab00;display: inline-flex;" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="97.785px" height="97.785px" viewBox="0 0 97.785 97.785" style="enable-background:new 0 0 97.785 97.785;" xml:space="preserve"><g><path d="M48.896,30.221C28.365,49.168,17.704,29.46,17.704,53.281c0,33.218,23.983,43.242,31.191,44.504 c7.204-1.26,31.188-11.286,31.188-44.504C80.083,29.461,69.425,49.168,48.896,30.221z M66.111,60.734L48.15,78.693 c-0.951,0.953-2.199,1.43-3.446,1.43c-1.248, 0-2.495-0.477-3.447-1.43l-9.58-9.578c-1.903-1.904-1.903-4.989,0-6.895 c1.901-1.902,4.99-1.902,6.892,0l6.135,6.135L59.22,53.841c1.9-1.904,4.99-1.904,6.893,0 C68.016,55.742,68.016,58.828,66.111,60.734z"/></g></svg>
+				</h5>
+				<!-- <p class="rating d-flex mb-1"><a class="d-inline-flex"><i class="fa fa-star"></i></a> <a class="d-inline-flex"><i class="fa fa-star"></i></a> <a class="d-inline-flex"><i class="fa fa-star"></i></a> <a class="d-inline-flex"><i class="fa fa-star"></i></a> <a class="d-inline-flex"><i class="fa fa-star"></i></a></p> -->
+				<p class="d-flex mb-1"><strong>Industry</strong></p>	
+			</div>
+		</div>
+		<div class="col-md-8 m-p-0">
+			<div class="row h-100 ml-auto">
+				<div class="btn-group action-buttons" style="margin:auto 0 auto auto;" role="group" aria-label="Basic example">
+					<button type="button" class="btn btn-sm btn-dark" style="margin-right:2px;"><i class="fa fa-hand-o-up"></i> <br />Interest</button>
+					<button type="button" class="btn btn-sm  btn-dark" style="margin-right:2px;"><i class="fa fa-handshake-o"></i> <br />Follow</button>
+					<button type="button" class="btn btn-sm  btn-dark" style="margin-right:2px;"><i class="fa fa-comment"></i> <br />Message</button>
+					<button type="button" data-toggle="modal" data-target="#sharewindow" class="btn btn-sm  btn-dark" style="margin-right:2px;"><i class="fa fa-share-alt"></i> <br />Share</button>
+					<button type="button" class="btn btn-sm  btn-dark" style="margin-right:2px;"><i class="fa fa-share"></i> <br />Forword</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row d-none d-md-block">
+		<nav class="navbar navbar-expand-md business-profile-sub-header w-100 bg-theme" id="mainNav">
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link text-light js-scroll-trigger" href="#About">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-light js-scroll-trigger" href="#Services">Services</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-light js-scroll-trigger" href="#Our_Team">Team</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-light js-scroll-trigger" href="#Blogs">Blogs</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-light js-scroll-trigger" href="#Articles">Articles</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-light js-scroll-trigger" href="#Photos">Photos</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-light js-scroll-trigger" href="#Videos">Videos</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-light js-scroll-trigger" href="#Certification">Certification</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-light js-scroll-trigger" href="#Contact_Us">Contact Us</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<div class="row pt-md-3">
+		<div class="col-md-3 b-profile-left text-left p-md-0">
+			<div class="ui-block">
+				<div class="ui-block-title p-3">
+					<h6 class="title">Total Interests</h6>
+					<span style="font-size: 12px;text-align: right;color: #0396b6;"><a ui-sref="businessprofile.interest">View All</a></span>
+				</div>
+				<ul class="widget w-friend-pages-added notification-list friend-requests">
+					<li class="inline-items p-2 d-flex text-center">
+						<div class="m-auto d-inline-flex">
+							<i class="fa fa-hand-o-up"></i><h4 class="mt-0 mb-0 ml-2 mr-2">200</h4>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="ui-block">
+				<div class="ui-block-title p-3">
+					<h6 class="title">Total Folloerws</h6>
+					<span style="font-size: 12px;text-align: right;color: #0396b6;"><a ui-sref="businessprofile.followers">View All</a></span>
+				</div>
+				<ul class="widget w-friend-pages-added notification-list friend-requests">
+					<li class="inline-items p-2 d-flex text-center">
+						<div class="m-auto d-inline-flex">
+							<i class="fa fa-handshake-o"></i><h4 class="mt-0 mb-0 ml-2 mr-2">200</h4>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="ui-block">
+				<div class="ui-block-title p-3">
+					<h6 class="title">Total Views</h6>
+					<span style="font-size: 12px;text-align: right;color: #0396b6;"><a uisref="">View All</a></span>
+				</div>
+				<ul class="widget w-friend-pages-added notification-list friend-requests">
+					<li class="inline-items p-2 d-flex text-center">
+						<div class="m-auto d-inline-flex">
+							<i class="fa fa-eye"></i><h4 class="mt-0 mb-0 ml-2 mr-2">200</h4>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="ui-block">
+				<div class="ui-block-title p-3">
+					<h6 class="title">Feedback</h6>
+					<span style="font-size: 12px;text-align: right;color: #0396b6;"><a ui-sref="businessprofile.feedback">View All</a></span>
+				</div>
+				<ul class="widget w-friend-pages-added notification-list friend-requests">
+					<li class="inline-items p-2 d-flex text-left">
+						<div class="author-thumb">
+							<img src="assets/img/avatar38-sm.jpg" alt="author">
+						</div>
+						<div class="notification-event">
+							<a href="#" class="h6 notification-friend">Francine Smith</a>
+							<p class="rating d-flex m-auto"><a class="d-inline-flex"><i class="fa fa-star"></i></a> <a class="d-inline-flex"><i class="fa fa-star"></i></a> <a class="d-inline-flex"><i class="fa fa-star"></i></a> <a class="d-inline-flex"><i class="fa fa-star"></i></a> <a class="d-inline-flex"><i class="fa fa-star"></i></a></p>
+							<p class="chat-message-item mb-1">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+						</div>
+					</li>
+					<li class="inline-items p-2 d-flex text-left">
+						<div class="author-thumb">
+							<img src="assets/img/avatar38-sm.jpg" alt="author">
+						</div>
+						<div class="notification-event">
+							<a href="#" class="h6 notification-friend">Francine Smith</a>
+							<p class="rating d-flex m-auto"><a class="d-inline-flex"><i class="fa fa-star"></i></a> <a class="d-inline-flex"><i class="fa fa-star"></i></a> <a class="d-inline-flex"><i class="fa fa-star"></i></a> <a class="d-inline-flex"><i class="fa fa-star"></i></a> <a class="d-inline-flex"><i class="fa fa-star"></i></a></p>
+							<p class="chat-message-item mb-1">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-md-6 b-profile-center p-sm-02">
+			<div class="section bg-white who-we-are" id="About">
+				<div class="container">
+					<div class="row row-eq-height">
+						<div class="col-md-12 d-flex ">
+							<h3 class="section-tite">Who We Are</h3>
+						</div>
+						<div class="col-md-12">
+							<h3 class="contant-title">About Company</h3>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+							<p> Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+							<button class="btn btn-link text-theme pull-right d-flex"><span class="m-auto">Read more</span> &nbsp;&nbsp;<i class="fa fa-arrow-circle-right m-auto"></i></button>
+						</div>
+						<div class="col-md-12 m-pt-2">
+							<h3 class="contant-title">Vision</h3>
+							<p class="quote"><img class="left-quote" src="../assets/img/quote_left.png" />Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. &nbsp;<img class="right-quote" src="../assets/img/quote_right.png" /></p>
+							<h3 class="contant-title">Mission</h3>
+							<p class="quote"><img class="left-quote" src="../assets/img/quote_left.png" />Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. &nbsp;<img class="right-quote" src="../assets/img/quote_right.png" /></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="section bg-light services" id="Services">
+				<div class="container">
+					<div class="col-md-12 d-flex">
+						<h3 class="section-tite">What We Do</h3>
+					</div>
+					<div id="service-slider" class="owl-carousel">
+						<div ng-repeat="item in services" class="card card-body h-100" ng-repeat-owl-carousel carousel-init="servicecarouselInitializer">
+							<div>
+								<h3 class="contant-title text-center m-0">{{item.title}}</h3>
+								<p class="text-center m-0">{{item.discription}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="section bg-white team_leader" id="Our_Team">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="p-3 pl-4 pr-4">
+								<div class="col-md-12 d-flex">
+									<h3 class="section-sub-tite">Leader Board</h3>
+								</div>
+								<div id="leader-slider" class="owl-carousel">
+									<div ng-repeat="item in leaders" class="card bg-white card-body p-2" ng-repeat-owl-carousel carousel-init="leaderscarouselInitializer">
+										<div class="profile-img mb-2">
+											<img src="../assets/img/avatar7.jpg" />
+										</div>
+										<h5 class="text-left pl-2 mb-2">{{item.name}}</h5>
+										<p class="pl-2">{{item.designation}}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="p-3 pl-4 pr-4">
+								<div class="col-md-12 d-flex">
+									<h3 class="section-sub-tite">Our Team</h3>
+								</div>
+								<div id="team-slider" class="owl-carousel">
+									<div ng-repeat="item in teams" class="card bg-white card-body p-2" ng-repeat-owl-carousel carousel-init="teamscarouselInitializer">
+										<div class="profile-img mb-2">
+											<img src="../assets/img/avatar7.jpg" />
+										</div>
+										<h5 class="text-left pl-2 mb-2">{{item.name}}</h5>
+										<p class="pl-2">{{item.designation}}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="section bg-light Blogs" id="Blogs">
+				<div class="container">
+					<div class="col-md-12 d-flex">
+						<h3 class="section-tite">Blogs</h3>
+					</div>
+					<div id="blogs-slider" class="owl-carousel">
+						<div ng-repeat="item in blogs" class="card bg-white card-body p-2" ng-repeat-owl-carousel carousel-init="blogscarouselInitializer">
+							<div class="">
+								<div class="profile-img">
+									<img src="{{imagepath}}{{item.img}}" />
+								</div>
+								<div class="contant-body">
+									<h3 class="contant-title overflow-limit ellipsis">{{item.title}}</h3>
+									<p class="contant-pera views ellipsis">{{item.discription}}</p>
+								</div>
+								<button class="btn btn-sm btn-link text-theme pull-right d-flex"><span class="m-auto">Read more</span> &nbsp;&nbsp;<i class="fa fa-arrow-circle-right m-auto"></i></button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="section bg-white" id="Articles">
+				<div class="container">
+					<div class="col-md-12 d-flex">
+						<h3 class="section-tite">Articles</h3>
+					</div>
+					<div id="articles-slider" class="owl-carousel">
+						<div ng-repeat="item in articles" class="card bg-white card-body p-2" ng-repeat-owl-carousel carousel-init="articlescarouselInitializer">
+							<div class="">
+								<div class="profile-img">
+									<img src="{{imagepath}}{{item.img}}" />
+								</div>
+								<div class="contant-body">
+									<h3 class="contant-title overflow-limit ellipsis">{{item.title}}</h3>
+									<p class="contant-pera views ellipsis">{{item.discription}}</p>
+								</div>
+								<button class="btn btn-sm btn-link text-theme pull-right d-flex"><span class="m-auto">Read more</span> &nbsp;&nbsp;<i class="fa fa-arrow-circle-right m-auto"></i></button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="section bg-light" id="Photos">
+				<div class="container">
+					<div class="col-md-12 d-flex">
+						<h3 class="section-tite">Photos</h3>
+					</div>
+					<div id="photos-slider" class="owl-carousel">
+						<div ng-repeat="item in photos" class="card bg-white card-body p-2" ng-repeat-owl-carousel carousel-init="photoscarouselInitializer">
+							<div class="m-auto">
+								<div class="profile-img">
+									<img src="{{imagepath}}{{item.path}}" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="section bg-white" id="Videos">
+				<div class="container">
+					<div class="col-md-12 d-flex">
+						<h3 class="section-tite">Videos</h3>
+					</div>
+					<div id="videos-slider" class="owl-carousel">
+						<div ng-repeat="item in videos" class="card bg-white card-body p-2" ng-repeat-owl-carousel carousel-init="videoscarouselInitializer">
+							<div class="m-auto">
+								<div class="profile-img">
+									<img src="{{imagepath}}{{item.path}}" />
+								</div>
+								<div class="contant-body">
+									<h3 class="contant-title overflow-limit ellipsis">{{item.title}}</h3>
+									<span class="contant-budge duration">{{item.duration}}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="section bg-light" id="Certification">
+				<div class="container">
+					<div class="col-md-12 d-flex">
+						<h3 class="section-tite">Certified/License</h3>
+					</div>
+					<div id="certification-slider" class="owl-carousel">
+						<div ng-repeat="item in certifications" class="card bg-white card-body p-2" ng-repeat-owl-carousel carousel-init="certificationcarouselInitializer">
+							<div class="m-auto">
+								<div class="profile-img">
+									<img src="{{imagepath}}{{item.path}}" />
+								</div>
+								<div class="contant-body">
+									<h3 class="contant-title overflow-limit ellipsis">{{item.title}}</h3>
+									<p class="contant-pera views ellipsis">{{item.discription}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="section bg-light services" id="Lookingfor">
+				<div class="container">
+					<div class="col-md-12 d-flex">
+						<h3 class="section-tite">Looking For</h3>
+					</div>
+					<div id="Lookingfor-slider" class="owl-carousel">
+						<div ng-repeat="item in lookingfor" class="card card-body h-100" ng-repeat-owl-carousel carousel-init="lookingforcarouselInitializer">
+							<div>
+								<h3 class="contant-title text-center m-0">{{item.title}}</h3>
+								<p class="text-center m-0">{{item.discription}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="section bg-white" id="Contact_Us">
+				<div class="container">
+					<div class="row row-eq-height">
+						<div class="col-md-12 d-flex ">
+							<h3 class="section-tite">Contact Us</h3>
+						</div>
+						<div class="col-md-12 mobile-grid">
+							<h3 class="contant-title mb-2">Wapp Tech Logics Groups</h3>
+							<p class="mb-1 d-flex"><strong style="width: 14%;">Address: </strong><span style="width:70%;">99-B Dewas Naka,<br />Near Metro Mall, Indore 452010</span></p>
+							<p class="mb-1 d-flex"><strong style="width:14%;">Mobile: </strong><span style="width:70%;">+91 9893440098</span></p>
+							<p class="mb-1 d-flex"><strong style="width:14%;">Email: </strong><span style="width:70%;">ashishpokle3@gmail.com</span></p>
+							<hr style="width:100%;" />
+							<h3 class="contant-title">Follow Us</h3>
+							<p class="social-links"><a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a></p>
+						</div>
+						<div class="col-md-12">
+							<div id="googleMap" style="min-height: 200px;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="col-md-3 b-profile-right p-md-0">
+			<div class="ui-block">
+				<div class="ui-block-title p-3">
+					<h6 class="title">Suggested B-Profiles</h6>
+					<span style="font-size: 12px;text-align: right;color: #0396b6;"><a ui-sref="businessprofile.suggested_profiles">View All</a></span>
+				</div>
+				<ul class="widget w-friend-pages-added notification-list friend-requests">
+					<li class="inline-items p-3 text-left">
+						<div class="author-thumb">
+							<img src="assets/img/avatar38-sm.jpg" alt="author">
+						</div>
+						<div class="notification-event">
+							<a href="#" class="h6 notification-friend">Francine Smith</a>
+							<span class="chat-message-item">Industry name</span>
+						</div>
+						<!-- <span class="notification-icon">
+							<a href="#" class="accept-request">
+								<span class="icon-add without-text">
+									<svg class="olymp-happy-face-icon"><use xlink:href="assets/icons/icons.svg#olymp-happy-face-icon"></use></svg>
+								</span>
+							</a>
+						</span> -->
+					</li>
+		
+					<li class="inline-items p-3">
+						<div class="author-thumb">
+							<img src="assets/img/avatar38-sm.jpg" alt="author">
+						</div>
+						<div class="notification-event">
+							<a href="#" class="h6 notification-friend">Francine Smith</a>
+							<span class="chat-message-item">Industry name</span>
+						</div>
+						<!-- <span class="notification-icon">
+							<a href="#" class="accept-request">
+								<span class="icon-add without-text">
+									<svg class="olymp-happy-face-icon"><use xlink:href="assets/icons/icons.svg#olymp-happy-face-icon"></use></svg>
+								</span>
+							</a>
+						</span> -->
+		
+					</li>
+					<li class="inline-items p-3">
+						<div class="author-thumb">
+							<img src="assets/img/avatar38-sm.jpg" alt="author">
+						</div>
+						<div class="notification-event">
+							<a href="#" class="h6 notification-friend">Francine Smith</a>
+							<span class="chat-message-item">Industry name</span>
+						</div>
+						<!-- <span class="notification-icon">
+							<a href="#" class="accept-request">
+								<span class="icon-add without-text">
+									<svg class="olymp-happy-face-icon"><use xlink:href="assets/icons/icons.svg#olymp-happy-face-icon"></use></svg>
+								</span>
+							</a>
+						</span> -->
+		
+					</li>
+		
+				</ul>
+			</div>
+			<div class="ui-block">
+				<div class="ui-block-title p-3">
+					<h6 class="title">Linked B-Profiles</h6>
+					<span style="font-size: 12px;text-align: right;color: #0396b6;"><a ui-sref="businessprofile.linkedprofiles">View All</a></span>
+				</div>
+				<ul class="widget w-friend-pages-added notification-list friend-requests">
+					<li class="inline-items p-3">
+						<div class="author-thumb">
+							<img src="assets/img/avatar38-sm.jpg" alt="author">
+						</div>
+						<div class="notification-event">
+							<a href="#" class="h6 notification-friend">Francine Smith</a>
+							<span class="chat-message-item">Industry name</span>
+						</div>
+						<!-- <span class="notification-icon">
+							<a href="#" class="accept-request">
+								<span class="icon-add without-text">
+									<svg class="olymp-happy-face-icon"><use xlink:href="assets/icons/icons.svg#olymp-happy-face-icon"></use></svg>
+								</span>
+							</a>
+						</span> -->
+		
+					</li>
+		
+					<li class="inline-items p-3">
+						<div class="author-thumb">
+							<img src="assets/img/avatar38-sm.jpg" alt="author">
+						</div>
+						<div class="notification-event">
+							<a href="#" class="h6 notification-friend">Francine Smith</a>
+							<span class="chat-message-item">Industry name</span>
+						</div>
+						<!-- <span class="notification-icon">
+							<a href="#" class="accept-request">
+								<span class="icon-add without-text">
+									<svg class="olymp-happy-face-icon"><use xlink:href="assets/icons/icons.svg#olymp-happy-face-icon"></use></svg>
+								</span>
+							</a>
+						</span> -->
+		
+					</li>
+					<li class="inline-items p-3">
+						<div class="author-thumb">
+							<img src="assets/img/avatar38-sm.jpg" alt="author">
+						</div>
+						<div class="notification-event">
+							<a href="#" class="h6 notification-friend">Francine Smith</a>
+							<span class="chat-message-item">Industry name</span>
+						</div>
+						<!-- <span class="notification-icon">
+							<a href="#" class="accept-request">
+								<span class="icon-add without-text">
+									<svg class="olymp-happy-face-icon"><use xlink:href="assets/icons/icons.svg#olymp-happy-face-icon"></use></svg>
+								</span>
+							</a>
+						</span> -->
+		
+					</li>
+		
+				</ul>
+		
+			</div>
+		</div>
+	</div>
+</div>
+
+<div data-ng-include="'templates/nav/afterfooter.html'"></div>
+<script src='../js/theme/owl.carousel.min.js'></script>
+<script>
+	$(window).scrollTop(0);	
+/*
+*Helpers Functions
+*/
+// Numbers with zeros
+function pad(d) {
+    return (d < 10) ? '0' + d : d;
+}
+	// Generate range array
+function range(start, stop, step){
+    var a=[pad(start)], b=start;
+	while(b<stop){b+=step;a.push(pad(b))}
+	console.log(a);
+    return a;
+}
+var twoBar2Chart = document.getElementById("two-bar-chart-2");
+/*
+ *  Colors Pie Chart
+ * 26-Statistics.html
+ */
+
+if (twoBar2Chart !== null) {
+    var ctx_tb2 = twoBar2Chart.getContext("2d");
+    var data_tb2 = {
+        labels: ["","",""],
+        datasets: [
+            {
+                label: "Posting",
+                backgroundColor: "#2f5b9d",
+                borderSkipped: "bottom",
+                data: [43]
+            }, {
+                label: "Publishing",
+                backgroundColor: "#38bff1",
+                borderSkipped: 'bottom',
+                borderWidth: 0,
+                data: [36]
+            }, {
+                label: "Sharing",
+                backgroundColor: "#38bff1",
+                borderSkipped: 'bottom',
+                borderWidth: 0,
+                data: [50]
+            }]
+    };
+
+    var twoBar2ChartEl = new Chart(ctx_tb2, {
+        type: 'bar',
+        data: data_tb2,
+        options: {
+            legend: {
+                display: false
+            },
+            tooltips: {
+                mode: 'index',
+                intersect: false
+            },
+            responsive: true,
+            scales: {
+                xAxes: [{
+                    barPercentage:0.5,
+                    gridLines: {
+                        display: false
+                    },
+                    ticks: {
+                        fontColor: '#888da8'
+                    }
+                }],
+                yAxes: [{
+                    gridLines: {
+                        display: false
+                    },
+                    ticks: {
+                        beginAtZero:true,
+                        fontColor: '#888da8'
+                    }
+                }]
+            }
+        }
+    });
+}
+</script>
+<script>
+		var lastHashGap = '';
+		var lastHash = '';
+		$( document ).ready(function() {
+			$('#backtotop').hide();
+			$('#backtotop').click(function(){
+				$('html, body').animate({
+					scrollTop: 0
+				}, 1000);
+			});
+			// Smooth scrolling using jQuery easing
+			$('.nav-item a.js-scroll-trigger').click(function() {
+				var target = $(this.hash);
+				var Exgap = 65;
+				if(this.hash==lastHash){
+	
+				}else{
+					if(this.hash=='#About'){
+						Exgap = 0;
+					}else{
+						if(lastHashGap==0){
+							Exgap = 130;
+						}
+					}
+					if (target.length) {
+						$('html, body').animate({
+							scrollTop: target.offset().top-Exgap
+						}, 1000);
+						lastHashGap = Exgap;
+						lastHash = this.hash;
+						return false;
+					}
+				}
+				
+				
+			});
+	
+			// Closes responsive menu when a scroll trigger link is clicked
+			// $('.js-scroll-trigger').click(function() {
+			// 	$('.navbar-collapse').collapse('hide');
+			// });
+	
+			$(window).scroll(function() {
+				if ($(this).scrollTop()>520){
+					//$('#mainNav').addClass( "fixed-top");
+				}else{
+					//$('#mainNav').removeClass( "fixed-top");
+				}
+				if ($(this).scrollTop()>250){
+					$('#backtotop').show();
+				}else{
+					$('#backtotop').hide();
+				}
+			});
+		});
+		
+	
+			// This example adds a search box to a map, using the Google Place Autocomplete
+			// feature. People can enter geographical searches. The search box will return a
+			// pick list containing a mix of places and predicted search terms.
+	  
+			// This example requires the Places library. Include the libraries=places
+			// parameter when you first load the API. For example:
+			// <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+			function myMap() {
+				var mapProp= {
+					center:new google.maps.LatLng(51.508742,-0.120850),
+					zoom:5,
+				};
+				var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+			}
+		</script>
+		<script src="https://maps.googleapis.com/maps/api/js?callback=myMap" async defer></script>

@@ -1,0 +1,36 @@
+<nav class="navbar bg-theme d-block d-md-none mobile-header" style="padding: 5px 0;">
+	<button onclick="window.history.go(-1);" class="btn btn-link m-0" style="font-size:1.5rem;"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;Back</button>
+</nav>
+<nav class="navbar navbar-expand-md bg-white d-none d-md-block" ng-controller="LoginCtrl">
+	<div class="container">
+		<a class="navbar-brand d-none d-md-block" ui-sref="/"><img src="assets/img/logo.png" style="width:60px;" alt="NxBusiness"></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<form class="form-inline ml-auto" method="post" name="loginvalidate1" role="form" novalidate style="margin-top: -20px;">
+				<div class="form-group label-floating prefix-icon  m-1"  ng-class="{ 'has-error' : loginvalidate1.user_email.$invalid && !loginvalidate1.user_email.$pristine }">
+					<span class="input-group-prepend">
+						<i class="fa fa-user text-theme"></i>
+					</span>
+					<label class="control-label" for="login-username">Email <sup class="text-danger">*</sup></label>
+					<input type="email" ng-model="loginform.user_email" ng-pattern='/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i' class="form-control" name="user_email" required />
+				</div>
+				<div class="form-group label-floating prefix-icon  m-1"  ng-class="{ 'has-error' : loginvalidate1.password.$invalid && !loginvalidate1.password.$pristine && loginvalidate1.password.$error }">
+					<span class="input-group-prepend">
+					<i class="fa fa-key text-theme"></i>
+					</span>
+					<label class="control-label" for="login-password">Password <sup class="text-danger">*</sup></label>
+					<input type="password" ng-model="loginform.password"  ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" class="form-control" name="password" required />
+					<p class="forgot-password-button"><a ui-sref="forgot">Forgot Password?</a></p>
+				</div>
+				<button ng-if="islogin" ng-disabled="!loginvalidate1.$valid" type="submit" ng-click="login();" class="btn btn-theme m-1">
+					LOGIN
+				</button>
+				<button ng-if="!islogin"  type="submit" class="btn btn-theme m-1">
+					Loading...
+				</button>
+			</form>
+		</div>
+	</div>
+</nav>

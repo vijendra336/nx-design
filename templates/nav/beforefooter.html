@@ -1,0 +1,44 @@
+<div class="brforeLoginfooter">
+    <p class="text-center">
+        <a>About company</a> | 
+        <a>help</a> | 
+        <a>languages</a> | 
+        <a>Copyright Policy</a> | 
+        <a>Trademarks</a> | 
+        <a>User Guidelines</a> | 
+        <a>Careers</a> | 
+        <a>NX Assistant</a> | 
+        <a>Feedback</a>
+    </p>
+    <p class="text-center"><a>NxBusiness&copy;2018</a></p>
+    <a class="backtotop btn btn-theme d-flex" id="backtotop"><i class="fa fa-arrow-up m-auto" aria-hidden="true"></i></a>
+</div>
+<script>
+    $('document').ready(function() {
+        $('#backtotop').hide();
+		var height = Number($(window).height())-156;
+        var width = Number($(window).width());
+		console.log(height);
+		//("pageBody").style.backgroundColor = height+"px";
+		$('#pageBody').css("min-height", height+"px");
+        if(width>767){
+            $('#messageBody').css("height", Number(Number(height)+90)+"px");
+        }else{
+            $('#messageBody').css("min-height", Number(Number(height)+156)+"px");
+        }
+        
+        
+        $('#backtotop').click(function(){
+            $('html, body').animate({
+                scrollTop: 0
+            }, 1000);
+        });
+        $(window).scroll(function() {
+			if ($(this).scrollTop()>250){
+				$('#backtotop').show();
+			}else{
+				$('#backtotop').hide();
+			}
+		});
+    });
+</script>

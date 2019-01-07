@@ -1,0 +1,257 @@
+<!-- Login-Registration Form  -->
+<!-- <div data-ng-include="'templates/nav/fixed-sidebar.html'"></div> -->
+<div data-ng-include="'templates/nav/afterheader.html'"></div>
+<div class="container" id="pageBody">
+	<div class="row">
+		<!-- Info Outline  Personal Info  Academin Info  Professional Info Expertise Interets Publications  Other Network  Contacy Info -->
+		<div class="col-xl-9 order-xl-2 col-lg-9 order-lg-2 col-md-12 order-md-1 col-sm-12 col-xs-12 p-sm-02">
+		<!--  ng-class="panelHeader.id=='3'?'active':'d-md-none'" -->
+			<div class="account_setting" ng-if="defaulttab=='account_setting'">
+				<div  class="ui-block">
+					<div class="ui-block-title p-3">
+						<h6 class="title pl-2">Block Users</h6>
+					</div>
+					<div class="ui-block-content">
+						<ul class="widget w-personal-info">
+							<li class="d-flex">
+								<h6 class="title m-auto">Sudarshan Vis</h6>
+								<button class="btn btn-danger btn-sm m-auto" style="    padding: 3px 10px;">Unblock</button>
+							</li>
+							<li class="d-flex">
+								<h6 class="title m-auto">Sudarshan Vis</h6>
+								<button class="btn btn-danger btn-sm m-auto" style="    padding: 3px 10px;">Unblock</button>
+							</li>
+							<li class="d-flex">
+								<h6 class="title m-auto">Sudarshan Vis</h6>
+								<button class="btn btn-danger btn-sm m-auto" style="    padding: 3px 10px;">Unblock</button>
+							</li>
+							<li class="d-flex">
+								<h6 class="title m-auto">Sudarshan Vis</h6>
+								<button class="btn btn-danger btn-sm m-auto" style="    padding: 3px 10px;">Unblock</button>
+							</li>
+							<li class="d-flex">
+								<h6 class="title m-auto">Sudarshan Vis</h6>
+								<button class="btn btn-danger btn-sm m-auto" style="    padding: 3px 10px;">Unblock</button>
+							</li>
+							<li></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div  class="provacy_setting"  ng-if="defaulttab=='privacy_setting'">
+				<div  class="ui-block">
+					<div class="ui-block-title p-3">
+						<h6 class="title pl-2">Privacy Setting</h6>
+					</div>
+					<div class="ui-block-content">
+						<h5 class="">Discussions</h5>
+						<div class="description-toggle mb-3">
+							<div class="description-toggle-content">
+								<p>For the public Users</p>
+							</div>
+							<div class="togglebutton">
+								<label class="m-0"> 
+									<input type="checkbox" ng-model="user_profile_setting.public_user_message" ng-change="updateprofilesetting(user_profile_setting)" style="visibility: hidden;position: absolute;" checked=""><span class="toggle"></span>
+								</label>
+							</div>
+						</div>
+						<div class="description-toggle mb-3">
+							<div class="description-toggle-content">
+								<p>For the Following Users</p>
+							</div>
+							<div class="togglebutton">
+								<label class="m-0"> 
+									<input type="checkbox"  ng-model="user_profile_setting.follow_user_message" ng-change="updateprofilesetting(user_profile_setting)" style="visibility: hidden;position: absolute;" checked=""><span class="toggle"></span>
+								</label>
+							</div>
+						</div>
+					</div>
+					<hr class="m-0" />
+					<div class="ui-block-content">
+						<h5 class="">Feeds</h5>
+						<div class="description-toggle mb-3">
+							<div class="description-toggle-content">
+								<p>For the public Users</p>
+							</div>
+							<div class="togglebutton">
+								<label class="m-0"> 
+									<input type="checkbox" ng-model="user_profile_setting.public_user_feed" ng-change="updateprofilesetting(user_profile_setting)" style="visibility: hidden;position: absolute;" checked=""><span class="toggle"></span>
+								</label>
+							</div>
+						</div>
+						<div class="description-toggle mb-3">
+							<div class="description-toggle-content">
+								<p>For the Following Users</p>
+							</div>
+							<div class="togglebutton">
+								<label class="m-0"> 
+									<input type="checkbox" ng-model="user_profile_setting.follow_user_feed" ng-change="updateprofilesetting(user_profile_setting)" style="visibility: hidden;position: absolute;" checked=""><span class="toggle"></span>
+								</label>
+							</div>
+						</div>
+					</div>
+					<hr  class="m-0" />
+					<div class="ui-block-content">
+						<h5 class="">Profile Activity</h5>
+						<div class="description-toggle mb-3">
+							<div class="description-toggle-content">
+								<p>Mobile Number</p>
+							</div>
+							<div class="togglebutton">
+								<label class="m-0"> 
+									<input type="checkbox" ng-model="user_profile_setting.user_mobile" ng-change="updateprofilesetting(user_profile_setting)" style="visibility: hidden;position: absolute;" checked=""><span class="toggle"></span>
+								</label>
+							</div>
+						</div>
+						<div class="description-toggle mb-3">
+							<div class="description-toggle-content">
+								<p>Email Id</p>
+							</div>
+							<div class="togglebutton">
+								<label class="m-0"> 
+									<input type="checkbox" ng-model="user_profile_setting.user_email" ng-change="updateprofilesetting(user_profile_setting)" style="visibility: hidden;position: absolute;" checked=""><span class="toggle"></span>
+								</label>
+							</div>
+						</div>
+						<div class="description-toggle mb-3">
+							<div class="description-toggle-content">
+								<p>Date Of Birth</p>
+							</div>
+							<div class="togglebutton">
+								<label class="m-0"> 
+									<input type="checkbox" ng-model="user_profile_setting.user_dob" ng-change="updateprofilesetting(user_profile_setting)" style="visibility: hidden;position: absolute;" checked=""><span class="toggle"></span>
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="b-profile_setting" ng-if="defaulttab=='b-profile_setting'">
+				<div  class="ui-block">
+					<div class="ui-block-title p-3">
+						<h6 class="title pl-2">B-Profile Setting</h6>
+					</div>
+					<div class="ui-block-content">
+						<div class="col-md-12">
+							<div class="form-group label-floating">
+								<label class="control-label">Select Profile</label>
+								<select class="form-control" style="padding:1.6rem 1.1rem .4rem;height: 54px;">
+									<option value="Dk Gallery">Dk Gallery</option>
+									<option value="Dk Gallery">It Solution</option>
+								</select>
+							</div>
+						</div>
+						<div class="ui-block-content">
+							<h5 class="">Discussions</h5>
+							<div class="description-toggle mb-3">
+								<div class="description-toggle-content">
+									<p>For the public Users</p>
+								</div>
+								<div class="togglebutton">
+									<label class="m-0"> 
+										<input type="checkbox" style="visibility: hidden;position: absolute;" checked=""><span class="toggle"></span>
+									</label>
+								</div>
+							</div>
+							<div class="description-toggle mb-3">
+								<div class="description-toggle-content">
+									<p>For the Following Users</p>
+								</div>
+								<div class="togglebutton">
+									<label class="m-0"> 
+										<input type="checkbox" style="visibility: hidden;position: absolute;" checked=""><span class="toggle"></span>
+									</label>
+								</div>
+							</div>
+						</div>
+						<hr class="m-0" />
+						<div class="ui-block-content">
+							<h5 class="">Feeds</h5>
+							<div class="description-toggle mb-3">
+								<div class="description-toggle-content">
+									<p>For the public Users</p>
+								</div>
+								<div class="togglebutton">
+									<label class="m-0"> 
+										<input type="checkbox" style="visibility: hidden;position: absolute;" checked=""><span class="toggle"></span>
+									</label>
+								</div>
+							</div>
+							<div class="description-toggle mb-3">
+								<div class="description-toggle-content">
+									<p>For the Following Users</p>
+								</div>
+								<div class="togglebutton">
+									<label class="m-0"> 
+										<input type="checkbox" style="visibility: hidden;position: absolute;" checked=""><span class="toggle"></span>
+									</label>
+								</div>
+							</div>
+						</div>
+						<hr  class="m-0" />
+						<div class="ui-block-content">
+							<h5 class="">Profile Activity</h5>
+							<div class="description-toggle mb-3">
+								<div class="description-toggle-content">
+									<p>Mobile Number</p>
+								</div>
+								<div class="togglebutton">
+									<label class="m-0"> 
+										<input type="checkbox" style="visibility: hidden;position: absolute;" checked=""><span class="toggle"></span>
+									</label>
+								</div>
+							</div>
+							<div class="description-toggle mb-3">
+								<div class="description-toggle-content">
+									<p>Email Id</p>
+								</div>
+								<div class="togglebutton">
+									<label class="m-0"> 
+										<input type="checkbox" style="visibility: hidden;position: absolute;" checked=""><span class="toggle"></span>
+									</label>
+								</div>
+							</div>
+							<div class="description-toggle mb-3">
+								<div class="description-toggle-content">
+									<p>Date Of Birth</p>
+								</div>
+								<div class="togglebutton">
+									<label class="m-0"> 
+										<input type="checkbox" style="visibility: hidden;position: absolute;" checked=""><span class="toggle"></span>
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-3 order-xl-1 col-lg-3 order-lg-1 col-md-12 order-md-2 col-sm-12 col-xs-12 responsive-display-none">
+			<div class="ui-block">
+				<div class="your-profile">
+					<div>
+						<div class="card">
+							<div class="card-header">
+								Settings
+							</div>
+							<div class="card-body">
+								<ul class="your-profile-menu">
+									<li class="ng-scope" ng-click="changeTab('account_setting')">
+										<a class="ng-binding" ng-class="defaulttab=='account_setting'?'active':''" >Account Setting</a>
+									</li>
+									<li class="ng-scope" ng-click="changeTab('privacy_setting')">
+										<a class="ng-binding" ng-class="defaulttab=='privacy_setting'?'active':''" >Privacy Setting</a>
+									</li>
+									<li class="ng-scope" ng-click="changeTab('b-profile_setting')">
+										<a class="ng-binding" ng-class="defaulttab=='b-profile_setting'?'active':''" >B-Profile Setting</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div data-ng-include="'templates/nav/afterfooter.html'"></div>

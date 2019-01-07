@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:ng="http://angularjs.org">
+<head>
+	<!-- <base href="/" /> -->
+	<title>Nxbusiness</title>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+	<!-- <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *"> -->
+	<script src="js/theme/webfontloader.min.js"></script>
+	<script>
+		WebFont.load({
+			google: {
+				families: ['Roboto:300,400,500,700:latin']
+			}
+		});
+	</script>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-reboot.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-grid.min.css">
+	<!-- Theme Styles CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/theme-styles.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/blocks.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/fonts.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/datepicker.css">
+	<!-- Owl Carousel  -->
+	<link rel='stylesheet' href='assets/css/owl.carousel.css'>
+	<link rel='stylesheet' href='../assets/css/owl.theme.default.css'>
+	<link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.min.css">
+	<!-- Styles for plugins -->
+	<link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-select.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/sweet-alert.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/jquery.dropdown.min.css">
+	<!-- Lightbox popup script-->
+	<link rel="stylesheet" type="text/css" href="assets/css/magnific-popup.css">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.default.css">
+	<link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.min.css" />
+	<!-- Fav icon -->
+	<link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="assets/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+	<link rel="manifest" href="assets/favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- include the css and sprite -->
+
+	
+	
+	<!-- jQuery first, then Other JS. -->
+	<script src="js/theme/jquery-3.2.0.min.js"></script>
+	<!-- Js effects for material design. + Tooltips -->
+	<script src="js/theme/material.min.js"></script>
+	<!-- Helper scripts (Tabs, Equal height, Scrollbar, etc) -->
+	<script src="js/theme/theme-plugins.js"></script>	
+	<!-- Select / Sorting script -->
+	<script src="js/theme/selectize.min.js"></script>
+	
+	<!-- <script src="js/theme/angular-daterangepicker.min.js"></script> -->
+	<!-- Swiper / Sliders -->
+	<script src="js/theme/swiper.jquery.min.js"></script>
+	<!-- Datepicker input field script-->
+	<script src="js/theme/moment.min.js"></script>
+	<!-- <script src="js/theme/daterangepicker.min.js"></script> -->
+	<script src="js/theme/bootstrap-datepicker.js"></script>
+	<script src="js/theme/bootstrap.velidation.js"></script>
+	<script src="js/theme/mediaelement-and-player.min.js"></script>
+	<script src="js/theme/owl.carousel.min.js"></script>
+	<script src="js/theme/jquery.dropdown.min.js"></script>
+	
+	<!-- Chart JS Generate scripts-->
+	<script src="js/theme/Chart.min.js"></script>
+	<script src="js/theme/chartjs-plugin-deferred.min.js"></script>
+	<script src="js/theme/circle-progress.min.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+	<script src="https://unpkg.com/simplebar@latest/dist/simplebar.js"></script>
+	<!-- Init functions -->
+	<script src="js/angular/sweet-alert.min.js"></script>
+	
+	<!-- angular router -->
+	<script src="js/angular/angular.min.js"></script>
+	<!-- <script src="/socket.io/socket.io.js"></script> -->
+	<script src="js/angular/angular-ui-router.min.js"></script> 
+	<script src="js/angular/ng-file-upload-shim.min.js"></script>
+	<script src="js/angular/ng-file-upload.min.js"></script>
+	<script src="js/angular/SweetAlert.js"></script>
+	<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    
+	<!-- <script src="js/angular/angular-daterangepicker.min.js"></script> -->
+	<script src="js/angular/socket.io.js"></script>
+	<script src="js/angular/socket.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/Services/services.js"></script>
+	
+    <script src="http://169.50.129.254:8899/socket.io/socket.io.js"></script>
+	<!-- <script src="http://localhost:8899/socket.io/socket.io.js"></script> -->
+	
+	<script src="js/Services/SocketService.js"></script>
+
+	<script src="js/angular/select/select.js"></script>
+	<link rel="stylesheet" href="js/angular/select/select.css">
+
+	<!-- <script src="js/Services/userdata.js"></script> -->
+	<!-- <script src="js/Controllers/login.js"></script> 
+	<script src="js/Controllers/verification.js"></script> 
+	<script src="js/Controllers/forgotpassword.js"></script>
+	<script src="js/Controllers/resetpassword.js"></script>
+	<script src="js/Controllers/home.js"></script>
+	<script src="js/Controllers/basicinfo.js"></script>
+	<script src="js/Controllers/myprofile.js"></script>
+	<script src="js/Controllers/otherprofile.js"></script>
+	<script src="js/Controllers/friendrequests.js"></script>
+	<script src="js/Controllers/messages.js"></script> -->
+	<script src="js/Controllers/notifications.js"></script>
+	<script src="js/Controllers/settings.js"></script>
+	<script src="js/Controllers/help.js"></script>
+	<script src="js/Controllers/create_business_profile.js"></script>
+	<script src="js/Controllers/businessprofile_plans.js"></script>
+	<!-- <script src="js/Controllers/publicprofile.js"></script> -->
+	<script src="js/Controllers/businessprofile.js"></script>
+	<script src="js/Controllers/businessprofileoverview.js"></script>
+	<script src="js/Controllers/businessprofileabout.js"></script>
+	<script src="js/Controllers/businessprofilegallery.js"></script>
+	<script src="js/Controllers/businessprofilepublish.js"></script>
+	<script src="js/Controllers/businessprofileservices.js"></script>
+	<script src="js/Controllers/businessprofilelookingfor.js"></script>
+	<script src="js/Controllers/businessprofileportfolio.js"></script>
+	<script src="js/Controllers/businessprofilepresence.js"></script>
+	<script src="js/Controllers/businessprofilefeedback.js"></script>
+	<script src="js/Controllers/businessprofilefollowers.js"></script>
+	<script src="js/Controllers/businessprofileinterest.js"></script>
+	<script src="js/Controllers/businessprofilelinkedprofiles.js"></script>
+	<script src="js/Controllers/businessprofilesuggested_profiles.js"></script>
+	<!-- <script src="js/Controllers/popmessage.js"></script> -->
+	<script src="js/Controllers/businessprofileother.js"></script>
+	<script src="js/Controllers/businessprofileotheroverview.js"></script>
+	<script src="js/Controllers/businessprofileotherabout.js"></script>
+	<script src="js/Controllers/businessprofileotherfeedback.js"></script>
+	<script src="js/Controllers/businessprofileotherfollowers.js"></script>
+	<script src="js/Controllers/businessprofileothergallery.js"></script>
+	<script src="js/Controllers/businessprofileotherinterest.js"></script>
+	<script src="js/Controllers/businessprofileotherlinkedprofiles.js"></script>
+	<script src="js/Controllers/businessprofileotherlookingfor.js"></script>
+	<script src="js/Controllers/businessprofileotherportfolio.js"></script>
+	<script src="js/Controllers/businessprofileotherpresence.js"></script>
+	<script src="js/Controllers/businessprofileotherpublish.js"></script>
+	<script src="js/Controllers/businessprofileotherservices.js"></script>
+	<script src="js/Controllers/businessprofileothersuggested_profiles.js"></script>
+</head>
+<body ng-app="Nxbusiness" id="page-top">
+	<div ui-view ng-view></div>
+</body>
+
+</html>

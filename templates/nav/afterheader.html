@@ -1,0 +1,299 @@
+<!-- Header -->
+<div data-ng-include="'templates/nav/fixed-sidebar.html'"></div>
+<header class="header" id="site-header">
+	<div class="container">
+		<div class="page-title">
+			<a class="m-0" ui-sref="home"><img src="http://localhost/nx/assets/img/logo.png" style="width:25px;" alt="NxBusiness"></a>
+		</div>
+		<div class="header-content-wrapper">
+			<!--   w-search notification-list friend-requests -->
+			<form class="search-bar">
+				<div class="form-group with-button">
+					<input class="form-control" placeholder="Search here..." type="text">
+					<button>
+						<i class="fa fa-search"></i>
+					</button>
+				</div>
+			</form>
+		</div>
+		<div class="control-block">
+				<div class="control-icon more has-items">
+					<i class="fa fa-users"></i>
+					<!-- <svg class="olymp-happy-face-icon"><use xlink:href="assets/icons/icons.svg#olymp-happy-face-icon"></use></svg> -->
+					<div class="label-avatar bg-blue" ng-if="userrequest.length!=0">{{userrequest.length}}</div>
+		
+					<div class="more-dropdown more-with-triangle triangle-top-center">
+						<div class="ui-block-title ui-block-title-small">
+							<h6 class="title">Connection Requests</h6>
+							<a href="#">Find Connections</a>
+							<!-- <a href="javascript:void(0)" ui-sref="settings" >Settings</a> -->
+						</div>
+		
+						<div class="mCustomScrollbar" data-mcs-theme="dark" style="overflow:auto">
+							<ul class="notification-list friend-requests">
+								<li class="p-3" ng-repeat="request in userrequest track by $index">
+									<div class="author-thumb">
+										<img ng-src="{{request.profile_image}}" err-src="" style="width: 100%;" alt="{{request.first_name}} {{request.last_name}}">
+									</div>
+									<div class="notification-event">
+										<a class="h6 notification-friend">{{request.first_name}} {{request.last_name}}</a>
+										<span class="chat-message-item">{{request.user_email}}</span>
+									</div>
+									<span class="notification-icon">
+										<a ng-click="accept({connection_id:request.connection_id,user_id:request.user_id,_id:request._id})" class="accept-request p-1">
+											<i class="fa fa-check fs-30"></i>
+										</a>
+		
+										<a  ng-click="reject({_id:request._id})" class="accept-request request-del p-1">
+											<i class="fa fa-times fs-30"></i>
+										</a>
+		
+									</span>
+								</li>
+							</ul>
+						</div>
+						<a href="javascript:void(0)" ui-sref="friendrequests" class="view-all bg-theme p-2">View all</a>
+					</div>
+				</div>
+		
+				<div class="control-icon more has-items">
+					<i class="fa fa-comment"></i>
+					<!-- <svg class="olymp-chat---messages-icon"><use xlink:href="assets/icons/icons.svg#olymp-chat---messages-icon"></use></svg> -->
+					<div class="label-avatar bg-purple" ng-if="meesagedata.length!=0">{{meesagedata.length}}</div>
+		
+					<div class="more-dropdown more-with-triangle triangle-top-center">
+						<div class="ui-block-title ui-block-title-small">
+							<h6 class="title">Chat / Messages</h6>
+							<a href="#">Mark all as read</a>
+							<!-- <a href="javascript:void(0)" ui-sref="settings">Settings</a> -->
+						</div>
+						<div class="mCustomScrollbar">
+							<ul class="notification-list chat-message" style="height:100%;overflow: auto;">
+								<li class="p-2" ng-repeat="meesage in meesagedata track by $index" ng-click="gotomessage()">
+									<div class="author-thumb" style="position: relative;background: #fff;padding: 3px;box-shadow: 0px 0px 1px #b7b7b7;width: 50px;height: 50px;overflow:hidden;">
+										<img ng-src="{{meesage.user.profile_image}}" style="width: 100%;height: 100%;" err-src="{{mainurl}}assets/img/logo.png" alt="author">
+										<span ng-class="meesage.user.islogin?'online':'offline'" style="position: absolute;bottom: 0px;right: 0;" class="online"></span>
+									</div>
+									<div class="notification-event">
+										<a href="#" style="color:#333;" class="notification-friend">{{meesage.user.first_name}} {{meesage.user.last_name}}</a>
+										<span class="chat-message-item text-dark">{{(meesage.last_msg | limitTo: 20) + (meesage.last_msg.length > 20 ? ' ...' : '')}}</span>
+										<span class="notification-date m-0"><time class="entry-date updated" style="color:#909090;"  datetime="2004-07-24T18:18">{{meesage.updatedate  | date:"MM/dd/yyyy 'at' h:mma"}} hours ago</time></span>
+									</div>
+									<span ng-if="meesage.count!=0" class="bg-primary text-white notification-icon p-1 d-flex" style="border-radius: 100%;font-size: 0.6rem;width: 25px;height: 25px;">
+										<span class="m-auto">{{meesage.count}}</span>
+									</span>
+								</li>
+							</ul>
+						</div>
+						<a ng-click="gotomessage()" class="view-all bg-theme p-2">View All Messages</a>
+					</div>
+				</div>
+		
+				<div class="control-icon more has-items">
+					<!-- <svg class="olymp-thunder-icon"><use xlink:href="assets/icons/icons.svg#olymp-thunder-icon"></use></svg> -->
+					<i class="fa fa-bell"></i>
+					<div class="label-avatar bg-primary">8</div>
+		
+					<div class="more-dropdown more-with-triangle triangle-top-right" style="right: -25px;">
+						<div class="ui-block-title ui-block-title-small">
+							<h6 class="title">Notifications</h6>
+							<a href="#">Mark all as read</a>
+							<!-- <a href="javascript:void(0)" ui-sref="settings">Settings</a> -->
+						</div>
+		
+						<div class="mCustomScrollbar" data-mcs-theme="dark" style="overflow:auto">
+							<ul class="notification-list chat-message" style="height:100%;overflow: auto;">
+								<li class="p-2" ng-click="getchat(meesage)">
+									<div class="author-thumb" style="position: relative;background: #fff;padding: 3px;box-shadow: 0px 0px 1px #b7b7b7;width: 50px;height: 50px;overflow:hidden;">
+										<img src="assets/img/avatar67-sm.jpg" style="width: 100%;height: 100%;" alt="author">
+									</div>
+									<div class="notification-event">
+										<a href="#" style="color:#333;" class="notification-friend">Sid and 3 other users like on your post</a>
+										<!-- <span class="chat-message-item text-dark">Hello, Kha hai</span> -->
+										<span class="notification-date m-0"><time class="entry-date updated" style="color:#909090;" datetime="2004-07-24T18:18">2 hours ago</time></span>
+									</div>
+								</li>
+								<li class="p-2" ng-click="getchat(meesage)">
+									<div class="author-thumb" style="position: relative;background: #fff;padding: 3px;box-shadow: 0px 0px 1px #b7b7b7;width: 50px;height: 50px;overflow:hidden;">
+										<img src="assets/img/avatar67-sm.jpg" style="width: 100%;height: 100%;" alt="author">
+									</div>
+									<div class="notification-event">
+										<a href="#" style="color:#333;" class="notification-friend">You have new connection request</a>
+										<!-- <span class="chat-message-item text-dark">Hello, Kha hai</span> -->
+										<span class="notification-date m-0"><time class="entry-date updated" style="color:#909090;" datetime="2004-07-24T18:18">2 hours ago</time></span>
+									</div>
+								</li>
+								<li class="p-2" ng-click="getchat(meesage)">
+									<div class="author-thumb" style="position: relative;background: #fff;padding: 3px;box-shadow: 0px 0px 1px #b7b7b7;width: 50px;height: 50px;overflow:hidden;">
+										<img src="assets/img/avatar67-sm.jpg" style="width: 100%;height: 100%;" alt="author">
+									</div>
+									<div class="notification-event">
+										<a href="#" style="color:#333;" class="notification-friend">Sid and 3 other users like on your post</a>
+										<!-- <span class="chat-message-item text-dark">Hello, Kha hai</span> -->
+										<span class="notification-date m-0"><time class="entry-date updated" style="color:#909090;" datetime="2004-07-24T18:18">2 hours ago</time></span>
+									</div>
+								</li>
+								<li class="p-2" ng-click="getchat(meesage)">
+									<div class="author-thumb" style="position: relative;background: #fff;padding: 3px;box-shadow: 0px 0px 1px #b7b7b7;width: 50px;height: 50px;overflow:hidden;">
+										<img src="assets/img/avatar67-sm.jpg" style="width: 100%;height: 100%;" alt="author">
+									</div>
+									<div class="notification-event">
+										<a href="#" style="color:#333;" class="notification-friend">You have new connection request</a>
+										<!-- <span class="chat-message-item text-dark">Hello, Kha hai</span> -->
+										<span class="notification-date m-0"><time class="entry-date updated" style="color:#909090;" datetime="2004-07-24T18:18">2 hours ago</time></span>
+									</div>
+								</li>
+							</ul>
+						</div>
+		
+						<a href="javascript:void(0)" ui-sref="notifications" class="view-all bg-theme p-2">View All Notifications</a>
+					</div>
+				</div>
+				
+				<div class="author-page author vcard inline-items more">
+					<div class="author-thumb">
+						<img style="width:100%;" alt="author" ng-src="{{userdata.profile_image}}" err-src="{{mainurl}}assets/img/logo.png" class="avatar">
+						<!-- <span class="icon-status online"></span> -->
+						<div class="more-dropdown more-with-triangle">
+							<div class="mCustomScrollbar" data-mcs-theme="dark">
+								<div class="ui-block-title ui-block-title-small">
+									<h6 class="title">Your Account</h6>
+								</div>
+		
+								<ul class="account-settings">
+									<li>
+										<a ui-sref="profile({user_name: userdata.username})" ui-sref-opts="{reload: true}">
+											<svg class="olymp-menu-icon"><use xlink:href="assets/icons/icons.svg#olymp-menu-icon"></use></svg>
+											<span>Profile</span>
+										</a>
+									</li>
+									<li>
+										<a ui-sref="settings">
+											<svg class="olymp-star-icon left-menu-icon"  data-toggle="tooltip" data-placement="right"   data-original-title="FAV PAGE"><use xlink:href="assets/icons/icons.svg#olymp-settings-v2-icon"></use></svg>
+											<span>Settings</span>
+										</a>
+									</li>
+									<li>
+										<a ng-click="logout()">
+											<svg class="olymp-logout-icon"><use xlink:href="assets/icons/icons.svg#olymp-logout-icon"></use></svg>
+											<span>Log Out</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+		
+						</div>
+					</div>
+				</div>
+				
+				<div style="padding: 0 15px;" class="control-icon more has-items">
+					<i class="fa fa-plus"></i>
+					
+					<div class="more-dropdown more-with-triangle triangle-top-center" style="width: 280px;right: -120px;">
+						<div class="mCustomScrollbar">
+							<ul class="notification-list chat-message" style="height:100%;overflow: auto;">
+								<li ui-sref="businessprofileplans" class="p-2 d-flex">
+									<div class="author-thumb m-auto" style="position: relative;background: #fff;padding: 3px;box-shadow: 0px 0px 1px #b7b7b7;width: 50px;height: 50px;overflow:hidden;">
+										<i class="fa fa-plus text-dark" style="font-size: 40px !important;margin: 4px 7px;padding: 0;"></i>
+									</div>
+									<div class="notification-event m-auto">
+										<a href="#" style="color:#333;" class="notification-friend">Create B-Profile</a>
+									</div>
+								</li>
+								<li class="p-2 d-flex">
+									<div class="author-thumb m-auto" style="position: relative;background: #fff;padding: 3px;box-shadow: 0px 0px 1px #b7b7b7;width: 50px;height: 50px;overflow:hidden;">
+										<img src="assets/img/avatar67-sm.jpg" style="width: 100%;height: 100%;" alt="author">
+										<span style="position: absolute;bottom: 0px;right: 0;" class="online"></span>
+									</div>
+									<div class="notification-event m-auto">
+										<a href="#" style="color:#333;" class="notification-friend">Dk Art Gallery</a>
+									</div>
+								</li>
+								<li class="p-2 d-flex">
+									<div class="author-thumb m-auto" style="position: relative;background: #fff;padding: 3px;box-shadow: 0px 0px 1px #b7b7b7;width: 50px;height: 50px;overflow:hidden;">
+										<img src="assets/img/avatar67-sm.jpg" style="width: 100%;height: 100%;" alt="author">
+										<span style="position: absolute;bottom: 0px;right: 0;" class="online"></span>
+									</div>
+									<div class="notification-event m-auto">
+										<a href="#" style="color:#333;" class="notification-friend">Dk Art Gallery</a>
+									</div>
+								</li>
+								
+							</ul>
+						</div>
+						<a  ui-sref="settings" class="view-all bg-theme p-2">B-profiles Settings</a>
+					</div>
+				</div>
+		
+			</div>
+	</div>
+	
+		<div class="control-icon nxasistance-button has-items">
+			<i class="fa fa-headphones"></i>
+			<!-- <svg class="olymp-happy-face-icon"><use xlink:href="assets/icons/icons.svg#olymp-happy-face-icon"></use></svg> -->
+		</div>
+</header>
+
+<!-- ... end Header -->
+
+<!-- Responsive Header -->
+
+<header class="header header-responsive" id="site-header-responsive">
+	<div class="header-content-wrapper">
+		<ul class="nav nav-tabs mobile-app-tabs">
+			<li class="nav-item">
+				<a href="/home" class="nav-link">
+					<div class="control-icon has-items">
+						<i class="fa fa-home"></i>
+						<!-- <svg class="olymp-happy-face-icon"><use xlink:href="assets/icons/icons.svg#olymp-happy-face-icon"></use></svg> -->
+						<div class="label-avatar bg-blue">6</div>
+					</div>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="/friendrequests" class="nav-link">
+					<div class="control-icon has-items">
+						<i class="fa fa-users"></i>
+						<!-- <svg class="olymp-happy-face-icon"><use xlink:href="assets/icons/icons.svg#olymp-happy-face-icon"></use></svg> -->
+						<div class="label-avatar bg-blue" ng-if="userrequest.length!=0">{{userrequest.length}}</div>
+					</div>
+				</a>
+			</li>
+
+			<li class="nav-item">
+				<a href="/messages" class="nav-link">
+					<div class="control-icon has-items">
+						<i class="fa fa-comment"></i>
+						<!-- <svg class="olymp-chat---messages-icon"><use xlink:href="assets/icons/icons.svg#olymp-chat---messages-icon"></use></svg> -->
+						<div class="label-avatar bg-purple" ng-if="meesagedata.length!=0">{{meesagedata.length}} {{meesagedata}}</div>
+					</div>
+				</a>
+			</li>
+
+			<li class="nav-item">
+				<a href="/notifications" class="nav-link">
+					<div class="control-icon has-items">
+						<i class="fa fa-bell"></i>
+						<!-- <svg class="olymp-thunder-icon"><use xlink:href="assets/icons/icons.svg#olymp-thunder-icon"></use></svg> -->
+						<div class="label-avatar bg-primary">8</div>
+					</div>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link">
+					<div class="control-icon has-items">
+						<i class="fa fa-search olymp-magnifying-glass-icon"></i>
+					</div>
+				</a>
+			</li>
+		</ul>
+		<div class="control-icon nxasistance-button has-items">
+			<i class="fa fa-headphones"></i>
+			<!-- <svg class="olymp-happy-face-icon"><use xlink:href="assets/icons/icons.svg#olymp-happy-face-icon"></use></svg> -->
+		</div>
+	</div>
+</header>
+
+<!-- ... end Responsive Header -->
+
+<div class="header-spacer"></div>
